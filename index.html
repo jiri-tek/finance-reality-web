@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINANCE & REALITY – Výběr Vizuální Varianty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'sage': {
+                            50: '#f6f7f4',
+                            100: '#e3e7dd',
+                            200: '#c7d0bb',
+                            300: '#a4b393',
+                            400: '#849672',
+                            500: '#687a57',
+                            600: '#516144',
+                            700: '#414d37',
+                            800: '#363f2f',
+                            900: '#2f3629',
+                        },
+                        'sand': {
+                            50: '#faf8f5',
+                            100: '#f3efe8',
+                            200: '#e6ddd0',
+                            300: '#d5c6b1',
+                            400: '#c2aa8e',
+                            500: '#b39575',
+                            600: '#a68265',
+                            700: '#8a6b54',
+                            800: '#715848',
+                            900: '#5d4a3d',
+                        },
+                        'slate-blue': {
+                            50: '#f4f6f7',
+                            100: '#e3e8eb',
+                            200: '#c9d4d9',
+                            300: '#a4b5be',
+                            400: '#788f9c',
+                            500: '#5d7481',
+                            600: '#4f616e',
+                            700: '#44525c',
+                            800: '#3c464e',
+                            900: '#353d44',
+                        },
+                        'charcoal': {
+                            50: '#f6f6f6',
+                            100: '#e7e7e7',
+                            200: '#d1d1d1',
+                            300: '#b0b0b0',
+                            400: '#888888',
+                            500: '#6d6d6d',
+                            600: '#5d5d5d',
+                            700: '#4f4f4f',
+                            800: '#454545',
+                            900: '#3d3d3d',
+                            950: '#262626',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .variant-card {
+            transition: all 0.3s ease;
+        }
+        .variant-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-sand-50 via-white to-sage-50 min-h-screen">
+    <div class="container mx-auto px-6 py-12">
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <div class="mb-6">
+                <h1 class="font-serif text-4xl md:text-5xl text-charcoal-900 mb-2">
+                    FINANCE <span class="text-sage-600">&</span> REALITY
+                </h1>
+                <p class="text-charcoal-500 text-lg tracking-widest uppercase">Metelka & Bracková</p>
+            </div>
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-light text-charcoal-700 mb-4">Výběr Vizuální Varianty</h2>
+                <p class="text-charcoal-500">
+                    Připravili jsme 5 různých vizuálních konceptů pro váš web.
+                    Klikněte na kartu pro zobrazení kompletní varianty.
+                </p>
+            </div>
+        </header>
+
+        <!-- Variant Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+            <!-- Varianta 1 -->
+            <a href="variants/variant-1-split.html" class="variant-card bg-white rounded-2xl overflow-hidden shadow-lg border border-sage-100">
+                <div class="h-48 bg-gradient-to-r from-sage-400 to-sand-300 relative">
+                    <div class="absolute inset-0 flex">
+                        <div class="w-1/2 bg-sage-500/20 backdrop-blur-sm flex items-center justify-center">
+                            <span class="text-white font-serif text-2xl">Finance</span>
+                        </div>
+                        <div class="w-1/2 bg-sand-400/20 backdrop-blur-sm flex items-center justify-center">
+                            <span class="text-white font-serif text-2xl">Reality</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-sage-600 text-sm font-medium uppercase tracking-wider">Varianta 1</span>
+                    <h3 class="text-xl font-semibold text-charcoal-900 mt-2 mb-3">Modern Split Minimalist</h3>
+                    <p class="text-charcoal-500 text-sm">
+                        Čisté rozdělení na 2 poloviny, které se spojují v celek. Tlumená šalvějová + teplá béžová.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Varianta 2 -->
+            <a href="variants/variant-2-editorial.html" class="variant-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-blue-100">
+                <div class="h-48 bg-gradient-to-br from-slate-blue-600 to-slate-blue-800 relative flex items-center justify-center">
+                    <div class="text-center">
+                        <span class="font-serif text-5xl text-sand-200 tracking-tight">M&B</span>
+                        <div class="h-px w-16 bg-sand-300 mx-auto mt-3"></div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-slate-blue-600 text-sm font-medium uppercase tracking-wider">Varianta 2</span>
+                    <h3 class="text-xl font-semibold text-charcoal-900 mt-2 mb-3">Premium Architectural</h3>
+                    <p class="text-charcoal-500 text-sm">
+                        Velkorysé nadpisy, časopisecký styl. Břidlicově modrá + písková béžová.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Varianta 3 -->
+            <a href="variants/variant-3-organic.html" class="variant-card bg-white rounded-2xl overflow-hidden shadow-lg border border-sage-100">
+                <div class="h-48 bg-gradient-to-br from-sage-300 via-sage-200 to-sand-100 relative flex items-center justify-center">
+                    <div class="w-20 h-20 rounded-full bg-white/60 backdrop-blur-sm flex items-center justify-center">
+                        <div class="w-16 h-16 rounded-full bg-sage-400/40"></div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-sage-600 text-sm font-medium uppercase tracking-wider">Varianta 3</span>
+                    <h3 class="text-xl font-semibold text-charcoal-900 mt-2 mb-3">Warm Organic & Personal</h3>
+                    <p class="text-charcoal-500 text-sm">
+                        Lidskost, důvěra, životní příběh. Olivovo-zelená + slonovinová.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Varianta 4 -->
+            <a href="variants/variant-4-corporate.html" class="variant-card bg-white rounded-2xl overflow-hidden shadow-lg border border-charcoal-200">
+                <div class="h-48 bg-gradient-to-br from-charcoal-800 to-charcoal-950 relative">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="grid grid-cols-3 gap-2 opacity-60">
+                            <div class="w-8 h-8 bg-slate-blue-500 rounded"></div>
+                            <div class="w-8 h-8 bg-slate-blue-400 rounded"></div>
+                            <div class="w-8 h-8 bg-slate-blue-600 rounded"></div>
+                            <div class="w-8 h-8 bg-slate-blue-400 rounded"></div>
+                            <div class="w-8 h-8 bg-slate-blue-500 rounded"></div>
+                            <div class="w-8 h-8 bg-slate-blue-400 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-charcoal-600 text-sm font-medium uppercase tracking-wider">Varianta 4</span>
+                    <h3 class="text-xl font-semibold text-charcoal-900 mt-2 mb-3">Dynamic Corporate Executive</h3>
+                    <p class="text-charcoal-500 text-sm">
+                        Data, čísla, autorita. Antracitová + petrolejově modrá.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Varianta 5 -->
+            <a href="variants/variant-5-dashboard.html" class="variant-card bg-white rounded-2xl overflow-hidden shadow-lg border border-sage-100">
+                <div class="h-48 bg-gradient-to-br from-charcoal-100 to-sand-100 relative">
+                    <div class="absolute inset-4 bg-white/40 backdrop-blur-md rounded-xl border border-white/60 flex items-center justify-center">
+                        <div class="flex gap-2">
+                            <div class="px-4 py-2 bg-sage-500 text-white rounded-lg text-sm">Finance</div>
+                            <div class="px-4 py-2 bg-white/80 text-charcoal-600 rounded-lg text-sm">Reality</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-sage-600 text-sm font-medium uppercase tracking-wider">Varianta 5</span>
+                    <h3 class="text-xl font-semibold text-charcoal-900 mt-2 mb-3">Interactive Dashboard</h3>
+                    <p class="text-charcoal-500 text-sm">
+                        Glassmorphism, karty, přepínání. Šalvějová, taupe, stříbrošedá.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Info Card -->
+            <div class="bg-sage-50 rounded-2xl p-6 border border-sage-200 flex flex-col justify-center">
+                <div class="text-sage-600 mb-4">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-charcoal-900 mb-2">Jak vybrat?</h3>
+                <p class="text-charcoal-600 text-sm">
+                    Prohlédněte si všechny varianty a vyberte tu, která nejlépe vystihuje váš styl a hodnoty. Po výběru přistoupíme k finálnímu vývoji.
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-charcoal-400 text-sm">
+            <p>FINANCE & REALITY – Metelka & Bracková</p>
+            <p class="mt-1">Prototypy pro výběr vizuálního stylu</p>
+        </footer>
+    </div>
+</body>
+</html>
