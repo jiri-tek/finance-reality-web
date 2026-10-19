@@ -764,11 +764,25 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-charcoal-950 text-charcoal-400 py-8">
+    <footer class="bg-charcoal-950 text-charcoal-400 py-12">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="font-serif text-xl text-white">FINANCE & REALITY</p>
-                <p class="text-sm">&copy; 2024 Metelka & Bracková. Všechna práva vyhrazena.</p>
+            <div class="flex flex-col gap-8">
+                <!-- Top row -->
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="font-serif text-2xl text-white">FINANCE & REALITY</p>
+                    <div class="flex flex-wrap justify-center gap-6 text-sm">
+                        <a href="#obchodni-podminky" class="hover:text-white transition">Obchodní podmínky</a>
+                        <a href="#ochrana-udaju" class="hover:text-white transition">Ochrana osobních údajů</a>
+                        <a href="#" onclick="openCookieModal(); return false;" class="hover:text-white transition">Nastavení cookies</a>
+                    </div>
+                </div>
+                <!-- Divider -->
+                <div class="border-t border-charcoal-800"></div>
+                <!-- Bottom row -->
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+                    <p>&copy; 2025 Metelka & Bracková. Všechna práva vyhrazena.</p>
+                    <p class="text-charcoal-500">Trnitá 500/9, 602 00 Brno-střed</p>
+                </div>
             </div>
         </div>
     </footer>
