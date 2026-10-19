@@ -7,13 +7,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
+                        'sans': ['Plus Jakarta Sans', 'sans-serif'],
                         'serif': ['Cormorant Garamond', 'serif'],
                     },
                     colors: {
@@ -60,6 +60,40 @@
             }
         }
     </script>
+    <!-- Google Consent Mode V2 - MUSÍ být PŘED GTM -->
+    <script>
+        // Initialize dataLayer before GTM
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+
+        // Default consent: deny all non-essential (GDPR opt-in model)
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'personalization_storage': 'denied',
+            'functionality_storage': 'granted',
+            'security_storage': 'granted',
+            'wait_for_update': 500
+        });
+
+        // Apply saved consent immediately if exists
+        (function() {
+            var saved = localStorage.getItem('fr_consent_v2');
+            if (saved) {
+                gtag('consent', 'update', JSON.parse(saved));
+            }
+        })();
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TVPM2XZC');</script>
+
     <style>
         html { scroll-behavior: smooth; }
         .editorial-line::after {
@@ -83,6 +117,256 @@
         .stagger-2 { animation-delay: 0.2s; }
         .stagger-3 { animation-delay: 0.3s; }
         .stagger-4 { animation-delay: 0.4s; }
+
+        /* ============ COOKIE CONSENT STYLES ============ */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #353d44;
+            color: white;
+            padding: 1.5rem 2rem;
+            z-index: 3000;
+            display: none;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .cookie-banner.active { display: block; }
+        .cookie-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .cookie-banner-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .cookie-banner-text p {
+            font-size: 0.9rem;
+            color: #a4b5be;
+            max-width: 600px;
+        }
+        .cookie-banner-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .cookie-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cookie-btn-accept {
+            background: #b39575;
+            color: white;
+        }
+        .cookie-btn-accept:hover { background: #a68265; }
+        .cookie-btn-settings {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+        .cookie-btn-settings:hover { background: rgba(255,255,255,0.1); }
+        .cookie-btn-reject {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: underline;
+        }
+        .cookie-btn-reject:hover { color: white; }
+
+        /* Cookie Modal */
+        .cookie-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 3001;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        .cookie-modal-overlay.active { display: flex; }
+        .cookie-modal {
+            background: #faf8f5;
+            max-width: 600px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            border-radius: 8px;
+        }
+        .cookie-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e6ddd0;
+        }
+        .cookie-modal-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: #353d44;
+        }
+        .cookie-modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6d6d6d;
+        }
+        .cookie-modal-body {
+            padding: 1.5rem;
+        }
+        .cookie-modal-body > p {
+            color: #6d6d6d;
+            margin-bottom: 1.5rem;
+        }
+        .cookie-category {
+            border: 1px solid #e6ddd0;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .cookie-category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+        }
+        .cookie-category-info h4 {
+            font-size: 0.95rem;
+            color: #353d44;
+            margin-bottom: 0.25rem;
+        }
+        .cookie-category-info p {
+            font-size: 0.8rem;
+            color: #888888;
+        }
+        .cookie-toggle {
+            position: relative;
+            width: 48px;
+            height: 26px;
+            flex-shrink: 0;
+        }
+        .cookie-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .cookie-toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.3s;
+            border-radius: 26px;
+        }
+        .cookie-toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+        .cookie-toggle input:checked + .cookie-toggle-slider { background-color: #b39575; }
+        .cookie-toggle input:checked + .cookie-toggle-slider:before { transform: translateX(22px); }
+        .cookie-toggle input:disabled + .cookie-toggle-slider {
+            background-color: #b39575;
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        .cookie-modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-top: 1px solid #e6ddd0;
+        }
+        .cookie-btn-outline {
+            background: transparent;
+            border: 1px solid #353d44;
+            color: #353d44;
+        }
+        .cookie-btn-outline:hover { background: #353d44; color: white; }
+        .cookie-btn-primary {
+            background: #353d44;
+            color: white;
+        }
+        .cookie-btn-primary:hover { background: #1e2428; }
+
+        /* Floating Cookie Icon */
+        .floating-cookie-icon {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: #353d44;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2999;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .floating-cookie-icon.active { display: flex; }
+        .floating-cookie-icon:hover { transform: scale(1.1); }
+        .floating-cookie-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        /* Form toast notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            color: white;
+            font-size: 0.9rem;
+            z-index: 4000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .toast.success { background: #4a7c59; }
+        .toast.error { background: #c44536; }
+
+        @media (max-width: 640px) {
+            .cookie-banner-content { flex-direction: column; text-align: center; }
+            .cookie-banner-buttons { justify-content: center; width: 100%; }
+            .cookie-btn { flex: 1; min-width: 100px; }
+            .floating-cookie-icon { bottom: 80px; }
+        }
     </style>
 </head>
 <body class="bg-sand-50 text-charcoal-900">
@@ -103,11 +387,11 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="min-h-screen pt-20 relative overflow-hidden">
+    <section class="min-h-[100svh] pt-20 relative overflow-hidden flex items-center">
         <div class="absolute inset-0 bg-gradient-to-b from-sand-100 to-sand-50"></div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-32">
-            <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16 w-full">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <!-- Text Content -->
                 <div class="order-2 lg:order-1">
                     <p class="text-slate-blue-600 uppercase tracking-[0.3em] text-sm mb-6 fade-up stagger-1">Finanční poradenství & Reality</p>
@@ -125,7 +409,7 @@
                     </p>
 
                     <p class="text-charcoal-500 leading-relaxed mb-10 max-w-lg fade-up stagger-4">
-                        Komplexní služby v oblasti financí a realit. Lukáš Metelka PFP a Veronika Bracková – partneři v životě i v práci.
+                        Komplexní služby v oblasti financí a realit. Lukáš Metelka a Veronika Bracková – partneři v životě i v práci.
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 fade-up stagger-4">
@@ -142,10 +426,8 @@
                 <div class="order-1 lg:order-2 fade-up stagger-2">
                     <div class="relative">
                         <div class="aspect-[3/4] max-w-md mx-auto lg:max-w-none">
-                            <img src="photos/lukasaveronika.webp" alt="Lukáš Metelka a Veronika Bracková" class="w-full h-full object-cover">
+                            <img src="photos/lukasaveronika.webp" alt="Lukáš Metelka a Veronika Bracková" class="w-full h-full object-cover shadow-xl">
                         </div>
-                        <div class="absolute -bottom-4 -left-4 w-full h-full border-2 border-sand-400 -z-10"></div>
-                        <div class="absolute -top-8 -right-8 w-32 h-32 bg-slate-blue-100 -z-10"></div>
                     </div>
                 </div>
             </div>
@@ -187,104 +469,78 @@
     <!-- SLUŽBY SECTION -->
     <section id="sluzby" class="py-24 md:py-32 bg-sand-50">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="text-center mb-20">
+            <div class="text-center mb-16">
                 <p class="text-slate-blue-600 uppercase tracking-[0.3em] text-sm mb-4">Naše služby</p>
                 <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-blue-900">
                     Komplexní řešení
                 </h2>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-0 border border-sand-300">
-                <!-- Finance -->
-                <div class="p-8 md:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-sand-300">
-                    <div class="flex items-center gap-6 mb-8">
-                        <img src="photos/lukasaveronika.webp" alt="Lukáš Metelka" class="w-24 h-24 object-cover">
-                        <div>
-                            <h3 class="font-serif text-3xl text-slate-blue-900">Lukáš Metelka PFP</h3>
-                            <p class="text-sand-600 uppercase tracking-wider text-sm">Specialista finančního plánování</p>
-                        </div>
+            <!-- Profiles -->
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- Lukáš Profile -->
+                <div class="flex items-center gap-6 p-6 bg-white border border-sand-200">
+                    <img src="photos/lukasaveronika.webp" alt="Lukáš Metelka" class="w-20 h-20 object-cover flex-shrink-0">
+                    <div>
+                        <h3 class="font-serif text-2xl text-slate-blue-900">Lukáš Metelka</h3>
+                        <p class="text-sand-600 uppercase tracking-wider text-xs mb-2">Specialista finančního plánování</p>
+                        <p class="text-charcoal-500 text-sm">Pomáhám lidem dělat správná finanční rozhodnutí. Vysvětluji srozumitelně a bez zbytečných slibů.</p>
                     </div>
-
-                    <p class="text-charcoal-600 leading-relaxed mb-8">
-                        Pomáhám lidem dělat správná finanční rozhodnutí. Specializuji se na dlouhodobé finanční plánování, investice, hypotéky, pojištění a ochranu majetku. Vysvětluji srozumitelně a bez zbytečných slibů.
-                    </p>
-
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-slate-blue-400 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Dlouhodobé finanční plánování</h4>
-                                <p class="text-charcoal-500 text-sm">Správa kapitálu a strategie růstu</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-slate-blue-400 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Hypotéky & financování</h4>
-                                <p class="text-charcoal-500 text-sm">Nejlepší podmínky pro vaše bydlení</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-slate-blue-400 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Investice & zajištění</h4>
-                                <p class="text-charcoal-500 text-sm">Budování kapitálu na stáří</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-slate-blue-400 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Pojištění & ochrana</h4>
-                                <p class="text-charcoal-500 text-sm">Osoby, majetek a automobily</p>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
-
-                <!-- Reality -->
-                <div class="p-8 md:p-12 lg:p-16 bg-sand-100">
-                    <div class="flex items-center gap-6 mb-8">
-                        <img src="photos/veronika.webp" alt="Veronika Bracková" class="w-24 h-24 object-cover">
-                        <div>
-                            <h3 class="font-serif text-3xl text-slate-blue-900">Veronika Bracková</h3>
-                            <p class="text-sand-600 uppercase tracking-wider text-sm">Realitní specialistka</p>
-                        </div>
+                <!-- Veronika Profile -->
+                <div class="flex items-center gap-6 p-6 bg-white border border-sand-200">
+                    <img src="photos/veronika.webp" alt="Veronika Bracková" class="w-20 h-20 object-cover flex-shrink-0">
+                    <div>
+                        <h3 class="font-serif text-2xl text-slate-blue-900">Veronika Bracková</h3>
+                        <p class="text-sand-600 uppercase tracking-wider text-xs mb-2">Realitní specialistka</p>
+                        <p class="text-charcoal-500 text-sm">Nemovitost potřebuje správnou strategii, prezentaci a marketing. Mým cílem je dosáhnout co nejlepšího výsledku.</p>
                     </div>
+                </div>
+            </div>
 
-                    <p class="text-charcoal-600 leading-relaxed mb-8">
-                        Nemovitost není jen fotografie v inzerátu. Je to produkt, který potřebuje správnou strategii, prezentaci a marketing. Mým cílem je nemovitost správně představit a dosáhnout co nejlepšího výsledku.
-                    </p>
-
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-sand-500 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Prodej & Pronájem</h4>
-                                <p class="text-charcoal-500 text-sm">Komplexní realitní služby</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-sand-500 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Odhad tržní ceny</h4>
-                                <p class="text-charcoal-500 text-sm">Přesné ocenění nemovitosti</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-sand-500 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Home staging & Foto</h4>
-                                <p class="text-charcoal-500 text-sm">Profesionální prezentace</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-sand-500 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Marketing & Strategie</h4>
-                                <p class="text-charcoal-500 text-sm">Cílený prodejní přístup</p>
-                            </div>
-                        </li>
-                    </ul>
+            <!-- All Services Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Finance Services -->
+                <div class="bg-white p-6 border-t-4 border-slate-blue-600 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-slate-blue-100 text-slate-blue-700 text-xs uppercase tracking-wider mb-4">Finance</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Finanční plánování</h4>
+                    <p class="text-charcoal-500 text-sm">Správa kapitálu a strategie růstu pro vaši budoucnost</p>
+                </div>
+                <div class="bg-white p-6 border-t-4 border-slate-blue-600 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-slate-blue-100 text-slate-blue-700 text-xs uppercase tracking-wider mb-4">Finance</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Hypotéky & financování</h4>
+                    <p class="text-charcoal-500 text-sm">Nejlepší podmínky pro vaše bydlení</p>
+                </div>
+                <div class="bg-white p-6 border-t-4 border-slate-blue-600 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-slate-blue-100 text-slate-blue-700 text-xs uppercase tracking-wider mb-4">Finance</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Investice & zajištění</h4>
+                    <p class="text-charcoal-500 text-sm">Budování kapitálu na stáří</p>
+                </div>
+                <div class="bg-white p-6 border-t-4 border-slate-blue-600 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-slate-blue-100 text-slate-blue-700 text-xs uppercase tracking-wider mb-4">Finance</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Pojištění & ochrana</h4>
+                    <p class="text-charcoal-500 text-sm">Osoby, majetek a automobily</p>
+                </div>
+                <!-- Reality Services -->
+                <div class="bg-white p-6 border-t-4 border-sand-500 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-sand-100 text-sand-700 text-xs uppercase tracking-wider mb-4">Reality</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Prodej & Pronájem</h4>
+                    <p class="text-charcoal-500 text-sm">Komplexní realitní služby</p>
+                </div>
+                <div class="bg-white p-6 border-t-4 border-sand-500 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-sand-100 text-sand-700 text-xs uppercase tracking-wider mb-4">Reality</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Odhad tržní ceny</h4>
+                    <p class="text-charcoal-500 text-sm">Přesné ocenění nemovitosti</p>
+                </div>
+                <div class="bg-white p-6 border-t-4 border-sand-500 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-sand-100 text-sand-700 text-xs uppercase tracking-wider mb-4">Reality</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Home staging & Foto</h4>
+                    <p class="text-charcoal-500 text-sm">Profesionální prezentace</p>
+                </div>
+                <div class="bg-white p-6 border-t-4 border-sand-500 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-sand-100 text-sand-700 text-xs uppercase tracking-wider mb-4">Reality</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Marketing & Strategie</h4>
+                    <p class="text-charcoal-500 text-sm">Cílený prodejní přístup</p>
                 </div>
             </div>
         </div>
@@ -324,91 +580,97 @@
     <!-- REFERENCE SECTION -->
     <section id="reference" class="py-24 md:py-32 bg-sand-100">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="text-center mb-20">
+            <div class="text-center mb-16">
                 <p class="text-slate-blue-600 uppercase tracking-[0.3em] text-sm mb-4">Reference</p>
                 <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-blue-900">
                     Co říkají klienti
                 </h2>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Finance Reviews -->
-                <div class="space-y-6">
-                    <h3 class="font-serif text-2xl text-slate-blue-800 mb-6 pb-4 border-b border-sand-300">
-                        Finanční poradenství
-                    </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Finance Review 1 -->
+                <a href="https://g.co/kgs/finance-lukas-metelka" target="_blank" rel="noopener noreferrer" class="block bg-white p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="inline-block px-2 py-1 bg-slate-blue-100 text-slate-blue-700 text-xs uppercase tracking-wider">Finance</span>
+                        <div class="flex gap-0.5 text-sand-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                    </div>
+                    <p class="font-serif text-charcoal-700 italic leading-relaxed mb-4 text-sm">
+                        „S Lukášem spolupracuji už delší dobu a řešili jsme spolu nespočet finančních záležitostí. Vždy se choval maximálně profesionálně."
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <cite class="not-italic font-medium text-slate-blue-900 text-sm">Ondřej Bielik</cite>
+                        <span class="text-charcoal-400 text-xs group-hover:text-slate-blue-600 transition-colors">Google →</span>
+                    </div>
+                </a>
 
-                    <blockquote class="bg-white p-8">
-                        <p class="font-serif text-xl text-charcoal-700 italic leading-relaxed mb-6">
-                            „S Lukášem spolupracuji už delší dobu a řešili jsme spolu nespočet finančních záležitostí. Vždy se choval maximálně profesionálně, dokázal mi poradit a vysvětlit i složitější věci."
-                        </p>
-                        <footer class="flex items-center justify-between">
-                            <cite class="not-italic font-medium text-slate-blue-900">Ondřej Bielik</cite>
-                            <div class="flex gap-1 text-sand-500">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            </div>
-                        </footer>
-                    </blockquote>
+                <!-- Finance Review 2 -->
+                <a href="https://g.co/kgs/finance-lukas-metelka" target="_blank" rel="noopener noreferrer" class="block bg-white p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="inline-block px-2 py-1 bg-slate-blue-100 text-slate-blue-700 text-xs uppercase tracking-wider">Finance</span>
+                        <div class="flex gap-0.5 text-sand-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                    </div>
+                    <p class="font-serif text-charcoal-700 italic leading-relaxed mb-4 text-sm">
+                        „Profesionální přístup, opravdu se stará o maximální využití finančních možností klienta. Vystupování velmi příjemné."
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <cite class="not-italic font-medium text-slate-blue-900 text-sm">Jana Šmídková</cite>
+                        <span class="text-charcoal-400 text-xs group-hover:text-slate-blue-600 transition-colors">Google →</span>
+                    </div>
+                </a>
 
-                    <blockquote class="bg-white p-8">
-                        <p class="font-serif text-xl text-charcoal-700 italic leading-relaxed mb-6">
-                            „Profesionální přístup, opravdu se stará o maximální využití finančních možností klienta. Vystupování velmi příjemné."
-                        </p>
-                        <footer class="flex items-center justify-between">
-                            <cite class="not-italic font-medium text-slate-blue-900">Jana Šmídková</cite>
-                            <div class="flex gap-1 text-sand-500">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            </div>
-                        </footer>
-                    </blockquote>
-                </div>
+                <!-- Reality Review 1 -->
+                <a href="https://g.co/kgs/reality-veronika-brackova" target="_blank" rel="noopener noreferrer" class="block bg-white p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="inline-block px-2 py-1 bg-sand-100 text-sand-700 text-xs uppercase tracking-wider">Reality</span>
+                        <div class="flex gap-0.5 text-sand-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                    </div>
+                    <p class="font-serif text-charcoal-700 italic leading-relaxed mb-4 text-sm">
+                        „100 % profesionální jednání, naprostá spokojenost z mé strany. Mohu jen doporučit A++."
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <cite class="not-italic font-medium text-slate-blue-900 text-sm">Tomáš Šrajer</cite>
+                        <span class="text-charcoal-400 text-xs group-hover:text-sand-600 transition-colors">Google →</span>
+                    </div>
+                </a>
 
-                <!-- Reality Reviews -->
-                <div class="space-y-6">
-                    <h3 class="font-serif text-2xl text-slate-blue-800 mb-6 pb-4 border-b border-sand-300">
-                        Realitní služby
-                    </h3>
-
-                    <blockquote class="bg-white p-8">
-                        <p class="font-serif text-xl text-charcoal-700 italic leading-relaxed mb-6">
-                            „100 % profesionální jednání, naprostá spokojenost z mé strany. Mohu jen doporučit A++."
-                        </p>
-                        <footer class="flex items-center justify-between">
-                            <cite class="not-italic font-medium text-slate-blue-900">Tomáš Šrajer</cite>
-                            <div class="flex gap-1 text-sand-500">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            </div>
-                        </footer>
-                    </blockquote>
-
-                    <blockquote class="bg-white p-8">
-                        <p class="font-serif text-xl text-charcoal-700 italic leading-relaxed mb-6">
-                            „Velká profesionalita a trpělivost. Mohu všem doporučit."
-                        </p>
-                        <footer class="flex items-center justify-between">
-                            <cite class="not-italic font-medium text-slate-blue-900">Jaroslava Mrázková</cite>
-                            <div class="flex gap-1 text-sand-500">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            </div>
-                        </footer>
-                    </blockquote>
-                </div>
+                <!-- Reality Review 2 -->
+                <a href="https://g.co/kgs/reality-veronika-brackova" target="_blank" rel="noopener noreferrer" class="block bg-white p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="inline-block px-2 py-1 bg-sand-100 text-sand-700 text-xs uppercase tracking-wider">Reality</span>
+                        <div class="flex gap-0.5 text-sand-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                    </div>
+                    <p class="font-serif text-charcoal-700 italic leading-relaxed mb-4 text-sm">
+                        „Velká profesionalita a trpělivost. Mohu všem doporučit."
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <cite class="not-italic font-medium text-slate-blue-900 text-sm">Jaroslava Mrázková</cite>
+                        <span class="text-charcoal-400 text-xs group-hover:text-sand-600 transition-colors">Google →</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -429,7 +691,7 @@
 
                     <div class="grid sm:grid-cols-2 gap-8">
                         <div>
-                            <h3 class="font-serif text-xl text-sand-300 mb-4">Lukáš Metelka PFP</h3>
+                            <h3 class="font-serif text-xl text-sand-300 mb-4">Lukáš Metelka</h3>
                             <p class="text-slate-blue-300 text-sm mb-2">Finanční plánování</p>
                             <a href="tel:+420604463709" class="block text-white hover:text-sand-300 transition">+420 604 463 709</a>
                             <a href="mailto:lukas.metelka@zfpa.cz" class="block text-white hover:text-sand-300 transition text-sm mt-1">lukas.metelka@zfpa.cz</a>
@@ -475,14 +737,18 @@
                                 <input type="tel" name="phone" class="w-full px-0 py-3 border-0 border-b-2 border-sand-300 focus:border-slate-blue-600 bg-transparent outline-none transition">
                             </div>
                             <div>
-                                <label class="block text-sm uppercase tracking-wider text-charcoal-600 mb-2">Typ dotazu *</label>
-                                <select name="type" required class="w-full px-0 py-3 border-0 border-b-2 border-sand-300 focus:border-slate-blue-600 bg-transparent outline-none transition">
-                                    <option value="">Vyberte...</option>
-                                    <option value="finance">Finance</option>
-                                    <option value="reality">Reality</option>
-                                    <option value="both">Obojí</option>
-                                </select>
+                                <label class="block text-sm uppercase tracking-wider text-charcoal-600 mb-2">Lokalita</label>
+                                <input type="text" name="locality" placeholder="Město / Okres" class="w-full px-0 py-3 border-0 border-b-2 border-sand-300 focus:border-slate-blue-600 bg-transparent outline-none transition">
                             </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm uppercase tracking-wider text-charcoal-600 mb-2">Typ dotazu *</label>
+                            <select name="type" required class="w-full px-0 py-3 border-0 border-b-2 border-sand-300 focus:border-slate-blue-600 bg-transparent outline-none transition">
+                                <option value="">Vyberte...</option>
+                                <option value="finance">Finance</option>
+                                <option value="reality">Reality</option>
+                                <option value="both">Obojí</option>
+                            </select>
                         </div>
                         <div>
                             <label class="block text-sm uppercase tracking-wider text-charcoal-600 mb-2">Zpráva</label>
@@ -506,6 +772,335 @@
             </div>
         </div>
     </footer>
+
+    <!-- ============ COOKIE CONSENT BANNER ============ -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <h3>Nastavení cookies</h3>
+                <p>Tento web používá cookies pro analýzu návštěvnosti a personalizaci obsahu. Kliknutím na „Přijmout vše" souhlasíte s jejich použitím.</p>
+            </div>
+            <div class="cookie-banner-buttons">
+                <button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()">Přijmout vše</button>
+                <button class="cookie-btn cookie-btn-settings" onclick="openCookieModal()">Nastavení</button>
+                <button class="cookie-btn cookie-btn-reject" onclick="rejectAllCookies()">Odmítnout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ COOKIE SETTINGS MODAL ============ -->
+    <div id="cookieModal" class="cookie-modal-overlay">
+        <div class="cookie-modal">
+            <div class="cookie-modal-header">
+                <h2>Nastavení cookies</h2>
+                <button class="cookie-modal-close" onclick="closeCookieModal()">&times;</button>
+            </div>
+            <div class="cookie-modal-body">
+                <p>Vyberte, které kategorie cookies chcete povolit. Vaše volba bude uložena po dobu 1 roku.</p>
+
+                <!-- Nezbytné cookies -->
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h4>Nezbytné cookies</h4>
+                            <p>Nutné pro základní funkce webu</p>
+                        </div>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" disabled checked>
+                            <span class="cookie-toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Analytické cookies -->
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h4>Analytické cookies</h4>
+                            <p>Pomáhají nám pochopit, jak web používáte</p>
+                        </div>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="analytics_storage">
+                            <span class="cookie-toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Reklamní cookies -->
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h4>Reklamní cookies</h4>
+                            <p>Používány pro cílenou reklamu</p>
+                        </div>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="ad_storage">
+                            <span class="cookie-toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Uživatelská data pro reklamu -->
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h4>Uživatelská data pro reklamu</h4>
+                            <p>Sdílení dat s reklamními partnery</p>
+                        </div>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="ad_user_data">
+                            <span class="cookie-toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Personalizace reklam -->
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h4>Personalizace reklam</h4>
+                            <p>Zobrazování relevantních reklam</p>
+                        </div>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="ad_personalization">
+                            <span class="cookie-toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Personalizační cookies -->
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h4>Personalizační cookies</h4>
+                            <p>Zapamatování vašich preferencí</p>
+                        </div>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="personalization_storage">
+                            <span class="cookie-toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="cookie-modal-footer">
+                <button class="cookie-btn cookie-btn-outline" onclick="rejectAllCookies()">Odmítnout vše</button>
+                <button class="cookie-btn cookie-btn-primary" onclick="saveConsentPreferences()">Uložit nastavení</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ FLOATING COOKIE ICON ============ -->
+    <div id="floatingCookieIcon" class="floating-cookie-icon" onclick="openCookieModal()" title="Nastavení cookies">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.598 11.064a1.006 1.006 0 0 0-.854-.172A2.938 2.938 0 0 1 20 11c-1.654 0-3-1.346-3-3 0-.217.031-.444.099-.716a1 1 0 0 0-1.673-.9 3.017 3.017 0 0 1-2.026.716c-1.654 0-3-1.346-3-3a2.97 2.97 0 0 1 .184-1.026 1 1 0 0 0-.945-1.336C9.626 1.738 9.413 1.75 9.2 1.75 4.682 1.75 1 5.432 1 9.95c0 5.523 4.477 10 10 10 5.523 0 10-4.477 10-10 0-.049-.003-.097-.008-.145a1.002 1.002 0 0 0-.394-.741zM11 18c-4.411 0-8-3.589-8-8a7.962 7.962 0 0 1 6.006-7.75A4.987 4.987 0 0 0 13.4 6.7a4.99 4.99 0 0 0 4.305 4.966A4.946 4.946 0 0 0 20 11.1 7.96 7.96 0 0 1 11 18z"/>
+            <circle cx="8.5" cy="11.5" r="1.5"/>
+            <circle cx="11" cy="14" r="1"/>
+            <circle cx="14" cy="10" r="1"/>
+        </svg>
+    </div>
+
+    <!-- ============ TOAST NOTIFICATION ============ -->
+    <div id="toast" class="toast"></div>
+
+    <!-- ============ JAVASCRIPT ============ -->
+    <script>
+        // ============ COOKIE CONSENT MANAGEMENT ============
+        const CONSENT_KEY = 'fr_consent_v2';
+        const CONSENT_CATEGORIES = [
+            'ad_storage',
+            'ad_user_data',
+            'ad_personalization',
+            'analytics_storage',
+            'personalization_storage'
+        ];
+
+        function getConsentState() {
+            const saved = localStorage.getItem(CONSENT_KEY);
+            if (saved) return JSON.parse(saved);
+            return {
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'analytics_storage': 'denied',
+                'personalization_storage': 'denied',
+                'functionality_storage': 'granted',
+                'security_storage': 'granted'
+            };
+        }
+
+        function saveConsentState(state) {
+            localStorage.setItem(CONSENT_KEY, JSON.stringify(state));
+            if (typeof gtag !== 'undefined') {
+                gtag('consent', 'update', state);
+            }
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: 'consent_update', consent_state: state });
+        }
+
+        function hasConsentBeenGiven() {
+            return localStorage.getItem(CONSENT_KEY) !== null;
+        }
+
+        function showCookieBanner() {
+            document.getElementById('cookieBanner').classList.add('active');
+        }
+
+        function hideCookieBanner() {
+            document.getElementById('cookieBanner').classList.remove('active');
+        }
+
+        function showFloatingIcon() {
+            document.getElementById('floatingCookieIcon').classList.add('active');
+        }
+
+        function hideFloatingIcon() {
+            document.getElementById('floatingCookieIcon').classList.remove('active');
+        }
+
+        function openCookieModal() {
+            const state = getConsentState();
+            CONSENT_CATEGORIES.forEach(category => {
+                const toggle = document.getElementById(category);
+                if (toggle) toggle.checked = state[category] === 'granted';
+            });
+            document.getElementById('cookieModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            hideCookieBanner();
+            hideFloatingIcon();
+        }
+
+        function closeCookieModal() {
+            document.getElementById('cookieModal').classList.remove('active');
+            document.body.style.overflow = '';
+            if (hasConsentBeenGiven()) {
+                showFloatingIcon();
+            } else {
+                showCookieBanner();
+            }
+        }
+
+        function acceptAllCookies() {
+            const state = {
+                'ad_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted',
+                'analytics_storage': 'granted',
+                'personalization_storage': 'granted',
+                'functionality_storage': 'granted',
+                'security_storage': 'granted'
+            };
+            saveConsentState(state);
+            hideCookieBanner();
+            closeCookieModal();
+            showFloatingIcon();
+        }
+
+        function rejectAllCookies() {
+            const state = {
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'analytics_storage': 'denied',
+                'personalization_storage': 'denied',
+                'functionality_storage': 'granted',
+                'security_storage': 'granted'
+            };
+            saveConsentState(state);
+            hideCookieBanner();
+            closeCookieModal();
+            showFloatingIcon();
+        }
+
+        function saveConsentPreferences() {
+            const state = {
+                'ad_storage': document.getElementById('ad_storage').checked ? 'granted' : 'denied',
+                'ad_user_data': document.getElementById('ad_user_data').checked ? 'granted' : 'denied',
+                'ad_personalization': document.getElementById('ad_personalization').checked ? 'granted' : 'denied',
+                'analytics_storage': document.getElementById('analytics_storage').checked ? 'granted' : 'denied',
+                'personalization_storage': document.getElementById('personalization_storage').checked ? 'granted' : 'denied',
+                'functionality_storage': 'granted',
+                'security_storage': 'granted'
+            };
+            saveConsentState(state);
+            closeCookieModal();
+            showFloatingIcon();
+        }
+
+        // Initialize cookie banner on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!hasConsentBeenGiven()) {
+                showCookieBanner();
+            } else {
+                showFloatingIcon();
+            }
+        });
+
+        // Modal backdrop click closes it
+        document.getElementById('cookieModal')?.addEventListener('click', function(e) {
+            if (e.target === this) closeCookieModal();
+        });
+
+        // Escape key closes modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('cookieModal')?.classList.contains('active')) {
+                closeCookieModal();
+            }
+        });
+
+        // ============ CONTACT FORM SUBMISSION ============
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbznHszwFx-iuixCN8pa_OJgtSr5uTcMI45frXQc7fIjBkBGu0N8V6PCdku3Q25Tx9taeg/exec';
+
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast ' + type + ' show';
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+
+        document.getElementById('contactForm')?.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Odesílám...';
+
+            // Collect form data
+            const formData = {
+                name: form.name.value,
+                email: form.email.value,
+                phone: form.phone.value || '',
+                locality: form.locality.value || '',
+                type: form.type.value,
+                message: form.message.value || ''
+            };
+
+            try {
+                // Send to Google Apps Script
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                showToast('Děkujeme za zprávu! Ozveme se vám co nejdříve.', 'success');
+                form.reset();
+            } catch (error) {
+                console.error('Form submission error:', error);
+                showToast('Omlouváme se, došlo k chybě. Zkuste to prosím znovu.', 'error');
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    </script>
 
 </body>
 </html>
