@@ -7,14 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'serif': ['Cormorant Garamond', 'serif'],
+                        'sans': ['Plus Jakarta Sans', 'sans-serif'],
+                        'serif': ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
                         'slate-blue': {
@@ -142,7 +142,7 @@
             gap: 1rem;
         }
         .cookie-banner-text h3 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
@@ -216,7 +216,7 @@
             border-bottom: 1px solid #e6ddd0;
         }
         .cookie-modal-header h2 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 1.5rem;
             color: #353d44;
         }
@@ -387,11 +387,11 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="min-h-screen pt-20 relative overflow-hidden">
+    <section class="min-h-[100svh] pt-20 relative overflow-hidden flex items-center">
         <div class="absolute inset-0 bg-gradient-to-b from-sand-100 to-sand-50"></div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-32">
-            <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16 w-full">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <!-- Text Content -->
                 <div class="order-2 lg:order-1">
                     <p class="text-slate-blue-600 uppercase tracking-[0.3em] text-sm mb-6 fade-up stagger-1">Finanční poradenství & Reality</p>
@@ -409,7 +409,7 @@
                     </p>
 
                     <p class="text-charcoal-500 leading-relaxed mb-10 max-w-lg fade-up stagger-4">
-                        Komplexní služby v oblasti financí a realit. Lukáš Metelka PFP a Veronika Bracková – partneři v životě i v práci.
+                        Komplexní služby v oblasti financí a realit. Lukáš Metelka a Veronika Bracková – partneři v životě i v práci.
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 fade-up stagger-4">
@@ -426,10 +426,8 @@
                 <div class="order-1 lg:order-2 fade-up stagger-2">
                     <div class="relative">
                         <div class="aspect-[3/4] max-w-md mx-auto lg:max-w-none">
-                            <img src="photos/LUKASAVERONIKA1.webp" alt="Lukáš Metelka a Veronika Bracková" class="w-full h-full object-cover">
+                            <img src="photos/LUKASAVERONIKA1.webp" alt="Lukáš Metelka a Veronika Bracková" class="w-full h-full object-cover shadow-xl">
                         </div>
-                        <div class="absolute -bottom-4 -left-4 w-full h-full border-2 border-sand-400 -z-10"></div>
-                        <div class="absolute -top-8 -right-8 w-32 h-32 bg-slate-blue-100 -z-10"></div>
                     </div>
                 </div>
             </div>
@@ -471,104 +469,78 @@
     <!-- SLUŽBY SECTION -->
     <section id="sluzby" class="py-24 md:py-32 bg-sand-50">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="text-center mb-20">
+            <div class="text-center mb-16">
                 <p class="text-slate-blue-600 uppercase tracking-[0.3em] text-sm mb-4">Naše služby</p>
                 <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-blue-900">
                     Komplexní řešení
                 </h2>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-0 border border-sand-300">
-                <!-- Finance -->
-                <div class="p-8 md:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-sand-300">
-                    <div class="flex items-center gap-6 mb-8">
-                        <img src="photos/LUKAS1.webp" alt="Lukáš Metelka" class="w-24 h-24 object-cover">
-                        <div>
-                            <h3 class="font-serif text-3xl text-slate-blue-900">Lukáš Metelka PFP</h3>
-                            <p class="text-sand-600 uppercase tracking-wider text-sm">Specialista finančního plánování</p>
-                        </div>
+            <!-- Profiles -->
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- Lukáš Profile -->
+                <div class="flex items-center gap-6 p-6 bg-white border border-sand-200">
+                    <img src="photos/LUKAS1.webp" alt="Lukáš Metelka" class="w-20 h-20 object-cover flex-shrink-0">
+                    <div>
+                        <h3 class="font-serif text-2xl text-slate-blue-900">Lukáš Metelka</h3>
+                        <p class="text-sand-600 uppercase tracking-wider text-xs mb-2">Specialista finančního plánování</p>
+                        <p class="text-charcoal-500 text-sm">Pomáhám lidem dělat správná finanční rozhodnutí. Vysvětluji srozumitelně a bez zbytečných slibů.</p>
                     </div>
-
-                    <p class="text-charcoal-600 leading-relaxed mb-8">
-                        Pomáhám lidem dělat správná finanční rozhodnutí. Specializuji se na dlouhodobé finanční plánování, investice, hypotéky, pojištění a ochranu majetku. Vysvětluji srozumitelně a bez zbytečných slibů.
-                    </p>
-
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-slate-blue-400 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Dlouhodobé finanční plánování</h4>
-                                <p class="text-charcoal-500 text-sm">Správa kapitálu a strategie růstu</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-slate-blue-400 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Hypotéky & financování</h4>
-                                <p class="text-charcoal-500 text-sm">Nejlepší podmínky pro vaše bydlení</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-slate-blue-400 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Investice & zajištění</h4>
-                                <p class="text-charcoal-500 text-sm">Budování kapitálu na stáří</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-slate-blue-400 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Pojištění & ochrana</h4>
-                                <p class="text-charcoal-500 text-sm">Osoby, majetek a automobily</p>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
-
-                <!-- Reality -->
-                <div class="p-8 md:p-12 lg:p-16 bg-sand-100">
-                    <div class="flex items-center gap-6 mb-8">
-                        <img src="photos/VERONIKA1.webp" alt="Veronika Bracková" class="w-24 h-24 object-cover">
-                        <div>
-                            <h3 class="font-serif text-3xl text-slate-blue-900">Veronika Bracková</h3>
-                            <p class="text-sand-600 uppercase tracking-wider text-sm">Realitní specialistka</p>
-                        </div>
+                <!-- Veronika Profile -->
+                <div class="flex items-center gap-6 p-6 bg-white border border-sand-200">
+                    <img src="photos/VERONIKA1.webp" alt="Veronika Bracková" class="w-20 h-20 object-cover flex-shrink-0">
+                    <div>
+                        <h3 class="font-serif text-2xl text-slate-blue-900">Veronika Bracková</h3>
+                        <p class="text-sand-600 uppercase tracking-wider text-xs mb-2">Realitní specialistka</p>
+                        <p class="text-charcoal-500 text-sm">Nemovitost potřebuje správnou strategii, prezentaci a marketing. Mým cílem je dosáhnout co nejlepšího výsledku.</p>
                     </div>
+                </div>
+            </div>
 
-                    <p class="text-charcoal-600 leading-relaxed mb-8">
-                        Nemovitost není jen fotografie v inzerátu. Je to produkt, který potřebuje správnou strategii, prezentaci a marketing. Mým cílem je nemovitost správně představit a dosáhnout co nejlepšího výsledku.
-                    </p>
-
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-sand-500 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Prodej & Pronájem</h4>
-                                <p class="text-charcoal-500 text-sm">Komplexní realitní služby</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-sand-500 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Odhad tržní ceny</h4>
-                                <p class="text-charcoal-500 text-sm">Přesné ocenění nemovitosti</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-sand-500 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Home staging & Foto</h4>
-                                <p class="text-charcoal-500 text-sm">Profesionální prezentace</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-8 h-px bg-sand-500 mt-3 flex-shrink-0"></span>
-                            <div>
-                                <h4 class="font-medium text-slate-blue-900">Marketing & Strategie</h4>
-                                <p class="text-charcoal-500 text-sm">Cílený prodejní přístup</p>
-                            </div>
-                        </li>
-                    </ul>
+            <!-- All Services Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Finance Services -->
+                <div class="bg-white p-6 border-t-4 border-slate-blue-600 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-slate-blue-100 text-slate-blue-700 text-xs uppercase tracking-wider mb-4">Finance</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Finanční plánování</h4>
+                    <p class="text-charcoal-500 text-sm">Správa kapitálu a strategie růstu pro vaši budoucnost</p>
+                </div>
+                <div class="bg-white p-6 border-t-4 border-slate-blue-600 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-slate-blue-100 text-slate-blue-700 text-xs uppercase tracking-wider mb-4">Finance</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Hypotéky & financování</h4>
+                    <p class="text-charcoal-500 text-sm">Nejlepší podmínky pro vaše bydlení</p>
+                </div>
+                <div class="bg-white p-6 border-t-4 border-slate-blue-600 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-slate-blue-100 text-slate-blue-700 text-xs uppercase tracking-wider mb-4">Finance</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Investice & zajištění</h4>
+                    <p class="text-charcoal-500 text-sm">Budování kapitálu na stáří</p>
+                </div>
+                <div class="bg-white p-6 border-t-4 border-slate-blue-600 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-slate-blue-100 text-slate-blue-700 text-xs uppercase tracking-wider mb-4">Finance</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Pojištění & ochrana</h4>
+                    <p class="text-charcoal-500 text-sm">Osoby, majetek a automobily</p>
+                </div>
+                <!-- Reality Services -->
+                <div class="bg-white p-6 border-t-4 border-sand-500 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-sand-100 text-sand-700 text-xs uppercase tracking-wider mb-4">Reality</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Prodej & Pronájem</h4>
+                    <p class="text-charcoal-500 text-sm">Komplexní realitní služby</p>
+                </div>
+                <div class="bg-white p-6 border-t-4 border-sand-500 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-sand-100 text-sand-700 text-xs uppercase tracking-wider mb-4">Reality</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Odhad tržní ceny</h4>
+                    <p class="text-charcoal-500 text-sm">Přesné ocenění nemovitosti</p>
+                </div>
+                <div class="bg-white p-6 border-t-4 border-sand-500 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-sand-100 text-sand-700 text-xs uppercase tracking-wider mb-4">Reality</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Home staging & Foto</h4>
+                    <p class="text-charcoal-500 text-sm">Profesionální prezentace</p>
+                </div>
+                <div class="bg-white p-6 border-t-4 border-sand-500 hover:shadow-lg transition-shadow">
+                    <span class="inline-block px-2 py-1 bg-sand-100 text-sand-700 text-xs uppercase tracking-wider mb-4">Reality</span>
+                    <h4 class="font-semibold text-slate-blue-900 mb-2">Marketing & Strategie</h4>
+                    <p class="text-charcoal-500 text-sm">Cílený prodejní přístup</p>
                 </div>
             </div>
         </div>
@@ -608,91 +580,97 @@
     <!-- REFERENCE SECTION -->
     <section id="reference" class="py-24 md:py-32 bg-sand-100">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="text-center mb-20">
+            <div class="text-center mb-16">
                 <p class="text-slate-blue-600 uppercase tracking-[0.3em] text-sm mb-4">Reference</p>
                 <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-blue-900">
                     Co říkají klienti
                 </h2>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Finance Reviews -->
-                <div class="space-y-6">
-                    <h3 class="font-serif text-2xl text-slate-blue-800 mb-6 pb-4 border-b border-sand-300">
-                        Finanční poradenství
-                    </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Finance Review 1 -->
+                <a href="https://www.google.com/search?q=luk%C3%A1%C5%A1+metelka" target="_blank" rel="noopener noreferrer" class="block bg-white p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="inline-block px-2 py-1 bg-slate-blue-100 text-slate-blue-700 text-xs uppercase tracking-wider">Finance</span>
+                        <div class="flex gap-0.5 text-sand-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                    </div>
+                    <p class="font-serif text-charcoal-700 italic leading-relaxed mb-4 text-sm">
+                        „S Lukášem spolupracuji už delší dobu a řešili jsme spolu nespočet finančních záležitostí. Vždy se choval maximálně profesionálně."
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <cite class="not-italic font-medium text-slate-blue-900 text-sm">Ondřej Bielik</cite>
+                        <span class="text-charcoal-400 text-xs group-hover:text-slate-blue-600 transition-colors">Google →</span>
+                    </div>
+                </a>
 
-                    <blockquote class="bg-white p-8">
-                        <p class="font-serif text-xl text-charcoal-700 italic leading-relaxed mb-6">
-                            „S Lukášem spolupracuji už delší dobu a řešili jsme spolu nespočet finančních záležitostí. Vždy se choval maximálně profesionálně, dokázal mi poradit a vysvětlit i složitější věci."
-                        </p>
-                        <footer class="flex items-center justify-between">
-                            <cite class="not-italic font-medium text-slate-blue-900">Ondřej Bielik</cite>
-                            <div class="flex gap-1 text-sand-500">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            </div>
-                        </footer>
-                    </blockquote>
+                <!-- Finance Review 2 -->
+                <a href="https://www.google.com/search?q=luk%C3%A1%C5%A1+metelka" target="_blank" rel="noopener noreferrer" class="block bg-white p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="inline-block px-2 py-1 bg-slate-blue-100 text-slate-blue-700 text-xs uppercase tracking-wider">Finance</span>
+                        <div class="flex gap-0.5 text-sand-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                    </div>
+                    <p class="font-serif text-charcoal-700 italic leading-relaxed mb-4 text-sm">
+                        „Profesionální přístup, opravdu se stará o maximální využití finančních možností klienta. Vystupování velmi příjemné."
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <cite class="not-italic font-medium text-slate-blue-900 text-sm">Jana Šmídková</cite>
+                        <span class="text-charcoal-400 text-xs group-hover:text-slate-blue-600 transition-colors">Google →</span>
+                    </div>
+                </a>
 
-                    <blockquote class="bg-white p-8">
-                        <p class="font-serif text-xl text-charcoal-700 italic leading-relaxed mb-6">
-                            „Profesionální přístup, opravdu se stará o maximální využití finančních možností klienta. Vystupování velmi příjemné."
-                        </p>
-                        <footer class="flex items-center justify-between">
-                            <cite class="not-italic font-medium text-slate-blue-900">Jana Šmídková</cite>
-                            <div class="flex gap-1 text-sand-500">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            </div>
-                        </footer>
-                    </blockquote>
-                </div>
+                <!-- Reality Review 1 -->
+                <a href="https://www.google.com/search?q=veronika+brackov%C3%A1+reality" target="_blank" rel="noopener noreferrer" class="block bg-white p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="inline-block px-2 py-1 bg-sand-100 text-sand-700 text-xs uppercase tracking-wider">Reality</span>
+                        <div class="flex gap-0.5 text-sand-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                    </div>
+                    <p class="font-serif text-charcoal-700 italic leading-relaxed mb-4 text-sm">
+                        „100 % profesionální jednání, naprostá spokojenost z mé strany. Mohu jen doporučit A++."
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <cite class="not-italic font-medium text-slate-blue-900 text-sm">Tomáš Šrajer</cite>
+                        <span class="text-charcoal-400 text-xs group-hover:text-sand-600 transition-colors">Google →</span>
+                    </div>
+                </a>
 
-                <!-- Reality Reviews -->
-                <div class="space-y-6">
-                    <h3 class="font-serif text-2xl text-slate-blue-800 mb-6 pb-4 border-b border-sand-300">
-                        Realitní služby
-                    </h3>
-
-                    <blockquote class="bg-white p-8">
-                        <p class="font-serif text-xl text-charcoal-700 italic leading-relaxed mb-6">
-                            „100 % profesionální jednání, naprostá spokojenost z mé strany. Mohu jen doporučit A++."
-                        </p>
-                        <footer class="flex items-center justify-between">
-                            <cite class="not-italic font-medium text-slate-blue-900">Tomáš Šrajer</cite>
-                            <div class="flex gap-1 text-sand-500">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            </div>
-                        </footer>
-                    </blockquote>
-
-                    <blockquote class="bg-white p-8">
-                        <p class="font-serif text-xl text-charcoal-700 italic leading-relaxed mb-6">
-                            „Velká profesionalita a trpělivost. Mohu všem doporučit."
-                        </p>
-                        <footer class="flex items-center justify-between">
-                            <cite class="not-italic font-medium text-slate-blue-900">Jaroslava Mrázková</cite>
-                            <div class="flex gap-1 text-sand-500">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            </div>
-                        </footer>
-                    </blockquote>
-                </div>
+                <!-- Reality Review 2 -->
+                <a href="https://www.google.com/search?q=veronika+brackov%C3%A1+reality" target="_blank" rel="noopener noreferrer" class="block bg-white p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="inline-block px-2 py-1 bg-sand-100 text-sand-700 text-xs uppercase tracking-wider">Reality</span>
+                        <div class="flex gap-0.5 text-sand-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                    </div>
+                    <p class="font-serif text-charcoal-700 italic leading-relaxed mb-4 text-sm">
+                        „Velká profesionalita a trpělivost. Mohu všem doporučit."
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <cite class="not-italic font-medium text-slate-blue-900 text-sm">Jaroslava Mrázková</cite>
+                        <span class="text-charcoal-400 text-xs group-hover:text-sand-600 transition-colors">Google →</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -713,7 +691,7 @@
 
                     <div class="grid sm:grid-cols-2 gap-8">
                         <div>
-                            <h3 class="font-serif text-xl text-sand-300 mb-4">Lukáš Metelka PFP</h3>
+                            <h3 class="font-serif text-xl text-sand-300 mb-4">Lukáš Metelka</h3>
                             <p class="text-slate-blue-300 text-sm mb-2">Finanční plánování</p>
                             <a href="tel:+420604463709" class="block text-white hover:text-sand-300 transition">+420 604 463 709</a>
                             <a href="mailto:lukas.metelka@zfpa.cz" class="block text-white hover:text-sand-300 transition text-sm mt-1">lukas.metelka@zfpa.cz</a>
@@ -750,13 +728,13 @@
                             </div>
                             <div>
                                 <label class="block text-sm uppercase tracking-wider text-charcoal-600 mb-2">E-mail *</label>
-                                <input type="email" name="email" required placeholder="vas@email.cz" class="w-full px-0 py-3 border-0 border-b-2 border-sand-300 focus:border-slate-blue-600 bg-transparent outline-none transition invalid:border-red-400">
+                                <input type="email" name="email" required class="w-full px-0 py-3 border-0 border-b-2 border-sand-300 focus:border-slate-blue-600 bg-transparent outline-none transition">
                             </div>
                         </div>
                         <div class="grid sm:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm uppercase tracking-wider text-charcoal-600 mb-2">Telefon</label>
-                                <input type="tel" name="phone" placeholder="123 456 789" class="w-full px-0 py-3 border-0 border-b-2 border-sand-300 focus:border-slate-blue-600 bg-transparent outline-none transition invalid:border-red-400">
+                                <input type="tel" name="phone" class="w-full px-0 py-3 border-0 border-b-2 border-sand-300 focus:border-slate-blue-600 bg-transparent outline-none transition">
                             </div>
                             <div>
                                 <label class="block text-sm uppercase tracking-wider text-charcoal-600 mb-2">Lokalita</label>
@@ -786,11 +764,25 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-charcoal-950 text-charcoal-400 py-8">
+    <footer class="bg-charcoal-950 text-charcoal-400 py-12">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="font-serif text-xl text-white">FINANCE & REALITY</p>
-                <p class="text-sm">&copy; 2024 Metelka & Bracková. Všechna práva vyhrazena.</p>
+            <div class="flex flex-col gap-8">
+                <!-- Top row -->
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="font-serif text-2xl text-white">FINANCE & REALITY</p>
+                    <div class="flex flex-wrap justify-center gap-6 text-sm">
+                        <a href="#obchodni-podminky" class="hover:text-white transition">Obchodní podmínky</a>
+                        <a href="#ochrana-udaju" class="hover:text-white transition">Ochrana osobních údajů</a>
+                        <a href="#" onclick="openCookieModal(); return false;" class="hover:text-white transition">Nastavení cookies</a>
+                    </div>
+                </div>
+                <!-- Divider -->
+                <div class="border-t border-charcoal-800"></div>
+                <!-- Bottom row -->
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+                    <p>&copy; 2025 Metelka & Bracková. Všechna práva vyhrazena.</p>
+                    <p class="text-charcoal-500">Trnitá 500/9, 602 00 Brno-střed</p>
+                </div>
             </div>
         </div>
     </footer>
@@ -1081,40 +1073,6 @@
             }, 4000);
         }
 
-        // Validace emailu
-        function isValidEmail(email) {
-            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return regex.test(email);
-        }
-
-        // Validace telefonu (mezinárodní formáty)
-        function isValidPhone(phone) {
-            if (!phone) return true; // telefon není povinný
-            const digits = phone.replace(/\D/g, ''); // pouze číslice
-
-            // Mezinárodní formát s předvolbou: 10-15 číslic (předvolba + číslo)
-            // Bez předvolby (české): přesně 9 číslic
-            if (phone.includes('+')) {
-                return digits.length >= 10 && digits.length <= 15;
-            } else {
-                // České číslo bez předvolby
-                return digits.length === 9;
-            }
-        }
-
-        // Formátování telefonu
-        function formatPhone(phone) {
-            const hasPlus = phone.includes('+');
-            const digits = phone.replace(/\D/g, '');
-
-            // České číslo bez předvolby - přidej +420
-            if (!hasPlus && digits.length === 9) {
-                return '+420 ' + digits.slice(0,3) + ' ' + digits.slice(3,6) + ' ' + digits.slice(6,9);
-            }
-            // Mezinárodní - zachovej jak je
-            return phone.trim();
-        }
-
         document.getElementById('contactForm')?.addEventListener('submit', async function(e) {
             e.preventDefault();
 
@@ -1122,34 +1080,18 @@
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
 
-            // Validace
-            const email = form.email.value.trim();
-            const phone = form.phone.value.trim();
-
-            if (!isValidEmail(email)) {
-                showToast('Zadejte prosím platný e-mail.', 'error');
-                form.email.focus();
-                return;
-            }
-
-            if (phone && !isValidPhone(phone)) {
-                showToast('Zadejte prosím platné telefonní číslo (9 číslic, volitelně +420).', 'error');
-                form.phone.focus();
-                return;
-            }
-
             // Disable button and show loading state
             submitBtn.disabled = true;
             submitBtn.textContent = 'Odesílám...';
 
             // Collect form data
             const formData = {
-                name: form.name.value.trim(),
-                email: email,
-                phone: phone ? formatPhone(phone) : '',
-                locality: form.locality.value.trim() || '',
+                name: form.name.value,
+                email: form.email.value,
+                phone: form.phone.value || '',
+                locality: form.locality.value || '',
                 type: form.type.value,
-                message: form.message.value.trim() || ''
+                message: form.message.value || ''
             };
 
             try {
