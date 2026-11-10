@@ -5,26 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V&L Finance a Reality | Finanční poradenství a realitní služby Brno</title>
     <meta name="description" content="Komplexní finanční poradenství a realitní služby v Brně. Lukáš Metelka PFP - hypotéky, investice, pojištění. Veronika Bracková - prodej a pronájem nemovitostí. Dva obory, jeden tým.">
-    <meta name="keywords" content="finanční poradenství Brno, realitní makléř Brno, hypotéky, investice, pojištění, prodej nemovitostí, pronájem, Lukáš Metelka, Veronika Bracková">
-    <meta name="author" content="V&L Finance a Reality">
+        <meta name="author" content="V&L Finance a Reality">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://vlfinancereality.cz/">
+    <link rel="canonical" href="https://www.vlfinancereality.cz/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vlfinancereality.cz/">
+    <meta property="og:url" content="https://www.vlfinancereality.cz/">
     <meta property="og:title" content="V&L Finance a Reality | Finanční poradenství a realitní služby Brno">
     <meta property="og:description" content="Komplexní finanční poradenství a realitní služby v Brně. Hypotéky, investice, pojištění, prodej a pronájem nemovitostí. Dva obory, jeden tým.">
-    <meta property="og:image" content="https://vlfinancereality.cz/photos/nove/uvodni.webp">
+    <meta property="og:image" content="https://www.vlfinancereality.cz/photos/nove/uvodni.webp">
     <meta property="og:locale" content="cs_CZ">
     <meta property="og:site_name" content="V&L Finance a Reality">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://vlfinancereality.cz/">
+    <meta name="twitter:url" content="https://www.vlfinancereality.cz/">
     <meta name="twitter:title" content="V&L Finance a Reality | Finanční poradenství a realitní služby Brno">
     <meta name="twitter:description" content="Komplexní finanční poradenství a realitní služby v Brně. Dva obory, jeden tým.">
-    <meta name="twitter:image" content="https://vlfinancereality.cz/photos/nove/uvodni.webp">
+    <meta name="twitter:image" content="https://www.vlfinancereality.cz/photos/nove/uvodni.webp">
 
     <!-- Structured Data - LocalBusiness -->
     <script type="application/ld+json">
@@ -33,7 +32,7 @@
         "@type": "ProfessionalService",
         "name": "V&L Finance a Reality",
         "description": "Komplexní finanční poradenství a realitní služby v Brně",
-        "url": "https://vlfinancereality.cz",
+        "url": "https://www.vlfinancereality.cz",
         "telephone": ["+420604463709", "+420604535520"],
         "email": "lukas.metelka@zfpa.cz",
         "address": {
@@ -647,22 +646,22 @@
 
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div class="aspect-square overflow-hidden">
-                    <img src="photos/nove/1.webp" alt="Nemovitost" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="photos/nove/1.webp" alt="Moderní interiér nemovitosti - realitní služby Brno" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
                 <div class="aspect-square overflow-hidden">
-                    <img src="photos/nove/2.webp" alt="Nemovitost" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="photos/nove/2.webp" alt="Prostorná kuchyně s moderním vybavením - prodej bytů Brno" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
                 <div class="aspect-square overflow-hidden">
-                    <img src="photos/nove/3.webp" alt="Nemovitost" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="photos/nove/3.webp" alt="Útulná ložnice s parketami - reality Brno" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
                 <div class="aspect-square overflow-hidden">
-                    <img src="photos/nove/1 dole.webp" alt="Nemovitost" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="photos/nove/1 dole.webp" alt="Exteriér rodinného domu - realitní makléř Brno" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
                 <div class="aspect-square overflow-hidden">
-                    <img src="photos/nove/2 dole.webp" alt="Nemovitost" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="photos/nove/2 dole.webp" alt="Moderní koupelna s designovými prvky - prodej nemovitostí" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
                 <div class="aspect-square overflow-hidden">
-                    <img src="photos/nove/3 dole.webp" alt="Nemovitost" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="photos/nove/3 dole.webp" alt="Zahrada s terasou - pronájem domů Brno" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
             </div>
         </div>
@@ -1325,6 +1324,16 @@
                 });
 
                 showToast('Děkujeme za zprávu! Ozveme se vám co nejdříve.', 'success');
+
+                // GA4 generate_lead event
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'generate_lead',
+                    'lead_source': 'contact_form',
+                    'lead_type': formData.type,
+                    'lead_locality': formData.locality
+                });
+
                 form.reset();
             } catch (error) {
                 console.error('Form submission error:', error);
